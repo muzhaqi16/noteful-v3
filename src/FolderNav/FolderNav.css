@@ -1,0 +1,28 @@
+.folderList li{
+    font-size: 30px;
+    width: 100%;
+}
+.folderList a:hover{
+    color: blue;
+}
+.folderList li a{
+    display: block;
+    padding: 5px;
+}
+li a.active{
+    background-color: brown;
+}
+a.active .openFolder{
+    display: inline;
+}
+a.active .closedFolder{
+    display: none;
+}
+.openFolder{
+    display: none;
+}
+.noteCount{
+    padding: 10px;
+    font-size: 12px;
+    vertical-align: top;
+}

@@ -1,0 +1,26 @@
+.NoteListMain{
+    width: 100%;
+}
+li{
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.noteList{
+    padding: 0;
+    margin:10px;
+}
+.noteList li{
+    margin-bottom: 10px;
+    background-color: #E84949;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.noteList a:hover{
+    color: blue;
+}
+.addNoteButton{
+    font-size: 24px;
+    width: 200px;
+}

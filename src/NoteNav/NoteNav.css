@@ -1,0 +1,13 @@
+.NoteNav{
+    font-size: 30px;
+    width: 100%;
+}
+.NoteNav a:hover{
+    color: #9D9494;
+}
+.NoteNav a{
+    display: block;
+}
+.NoteNav a.active{
+    background-color: #353030;
+}
