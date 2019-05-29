@@ -36,3 +36,6 @@ export default class FolderList extends React.Component {
         )
     }
 }
+FolderList.propTypes = {
+    folderId: PropTypes.string.isRequired,
+}
