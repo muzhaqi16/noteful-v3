@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ApiContext from '../ApiContext';
 import Note from '../Note/Note';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
@@ -39,7 +38,4 @@ export default class NoteList extends React.Component {
             </section>
         )
     }
-}
-NoteList.propTypes = {
-    noteId: PropTypes.string.isRequired,
 }
