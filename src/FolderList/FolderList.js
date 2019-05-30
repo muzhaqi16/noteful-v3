@@ -1,5 +1,6 @@
 import React from 'react';
 import ApiContext from '../ApiContext';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -20,14 +21,15 @@ export default class FolderList extends React.Component {
         return (
             <section className='NoteListMain'>
                 <ul className="noteList">
-                    {notes.map(note =>
-                        <ErrorBoundary>
+                    <ErrorBoundary>
+                        {notes.map(note =>
                             <Note key={note.id}
                                 name={note.name}
                                 id={note.id}
                                 modified={note.modified} />
-                        </ErrorBoundary>
-                    )}
+                        )}
+                    </ErrorBoundary>
+
                     <li className="addNoteButton">
                         <Link to="/add-note"><FontAwesomeIcon icon="sticky-note" /> Add Note</Link>
                     </li>
@@ -37,5 +39,5 @@ export default class FolderList extends React.Component {
     }
 }
 FolderList.propTypes = {
-    folderId: PropTypes.string.isRequired,
+    folderId: PropTypes.string
 }
