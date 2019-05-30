@@ -60,7 +60,7 @@ export default class AddNote extends React.Component {
 
         fieldValue = fieldValue.trim();
         if (fieldValue === "...") {
-            fieldErrors.name = 'Name is required';
+            fieldErrors.name = 'You must select a folder first';
             hasError = true;
         } else {
             fieldErrors.name = '';
@@ -69,8 +69,8 @@ export default class AddNote extends React.Component {
         }
 
         this.setState({
-            contentValidationMessages: fieldErrors,
-            contentValid: !hasError
+            folderValidationMessages: fieldErrors,
+            folderValid: !hasError
         });
     }
     validateContent(fieldValue) {
