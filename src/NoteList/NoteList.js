@@ -26,8 +26,8 @@ export default class NoteList extends React.Component {
         return (
             <section className='NoteListMain'>
                 <ul className="noteList">
-                    <ErrorBoundary>
-                        <Note key={note.id}
+                    <ErrorBoundary key={note.id}>
+                        <Note
                             name={note.name}
                             id={note.id}
                             modified={note.modified}

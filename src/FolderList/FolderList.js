@@ -21,14 +21,14 @@ export default class FolderList extends React.Component {
         return (
             <section className='NoteListMain'>
                 <ul className="noteList">
-                    <ErrorBoundary>
-                        {notes.map(note =>
-                            <Note key={note.id}
-                                name={note.name}
+
+                    {notes.map(note =>
+                        <ErrorBoundary key={note.id}>
+                            <Note name={note.name}
                                 id={note.id}
                                 modified={note.modified} />
-                        )}
-                    </ErrorBoundary>
+                        </ErrorBoundary>
+                    )}
 
                     <li className="addNoteButton">
                         <Link to="/add-note"><FontAwesomeIcon icon="sticky-note" /> Add Note</Link>
