@@ -94,28 +94,26 @@ class App extends React.Component {
   renderMainRoutes() {
     return (
       <>
-        <ErrorBoundary>
-          {['/', '/folder/:folderId'].map(path =>
-            <Route
-              exact
-              key={path}
-              path={path}
-              component={FolderList}
-            />
-          )}
+        {['/', '/folder/:folderId'].map(path =>
           <Route
-            path='/note/:noteId'
-            component={NoteList}
+            exact
+            key={path}
+            path={path}
+            component={FolderList}
           />
-          <Route
-            path='/add-folder'
-            component={AddFolder}
-          />
-          <Route
-            path='/add-note'
-            component={AddNote}
-          />
-        </ErrorBoundary>
+        )}
+        <Route
+          path='/note/:noteId'
+          component={NoteList}
+        />
+        <Route
+          path='/add-folder'
+          component={AddFolder}
+        />
+        <Route
+          path='/add-note'
+          component={AddNote}
+        />
       </>
     )
   }
