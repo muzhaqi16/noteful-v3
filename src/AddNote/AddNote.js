@@ -79,7 +79,7 @@ export default class AddNote extends React.Component {
 
         fieldValue = fieldValue.trim();
         if (fieldValue.length === 0) {
-            fieldErrors.name = 'Name is required';
+            fieldErrors.name = 'Content is required';
             hasError = true;
         } else {
             if (fieldValue.length < 10) {
