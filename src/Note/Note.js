@@ -15,7 +15,7 @@ export default class Note extends React.Component {
         e.preventDefault()
 
         const noteId = this.props.id;
-        const url = 'http://afternoon-shelf-12998.herokuapp.com';
+        const url = 'https://afternoon-shelf-12998.herokuapp.com';
         fetch(`${url}/notes/${noteId}`, {
             method: 'DELETE',
             headers: {
