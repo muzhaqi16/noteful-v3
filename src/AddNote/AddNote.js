@@ -105,7 +105,7 @@ export default class AddNote extends React.Component {
                 folderid: e.target['note-folder'].value,
                 modified: new Date(),
             }
-            fetch(`http://afternoon-shelf-12998.herokuapp.com/notes`, {
+            fetch(`https://afternoon-shelf-12998.herokuapp.com/notes`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
