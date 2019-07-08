@@ -13,8 +13,9 @@ export default class Note extends React.Component {
 
     handleClickDelete = e => {
         e.preventDefault()
-        const noteId = this.props.id
-        const url = 'http://localhost:9090';
+
+        const noteId = this.props.id;
+        const url = 'http://afternoon-shelf-12998.herokuapp.com';
         fetch(`${url}/notes/${noteId}`, {
             method: 'DELETE',
             headers: {
@@ -23,8 +24,8 @@ export default class Note extends React.Component {
         })
             .then(res => {
                 if (!res.ok)
-                    return res.json().then(e => Promise.reject(e))
-                return res.json()
+                    return res.then(e => Promise.reject(e))
+                return res
             })
             .then(() => {
                 this.context.deleteNote(noteId)
@@ -41,7 +42,7 @@ export default class Note extends React.Component {
         return (
             <li className='Note'>
                 <h2 className='title'>
-                    <Link to={`/note/${id}`}>
+                    <Link to={`/notes/${id}`}>
                         {name}
                     </Link>
                 </h2>

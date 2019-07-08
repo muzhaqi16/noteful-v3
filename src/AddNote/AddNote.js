@@ -102,10 +102,10 @@ export default class AddNote extends React.Component {
             const newNote = {
                 name: e.target['note-name'].value,
                 content: e.target['note-content'].value,
-                folderId: e.target['note-folder'].value,
+                folderid: e.target['note-folder'].value,
                 modified: new Date(),
             }
-            fetch(`http://localhost:9090/notes`, {
+            fetch(`http://afternoon-shelf-12998.herokuapp.com/notes`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -119,7 +119,7 @@ export default class AddNote extends React.Component {
                 })
                 .then(note => {
                     this.context.addNote(note)
-                    this.props.history.push(`/folder/${note.folderId}`)
+                    this.props.history.push(`/folders/${note.folderid}`)
                 })
                 .catch(error => {
                     console.error({ error })

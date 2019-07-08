@@ -15,7 +15,7 @@ export default class FolderList extends React.Component {
         let { notes = [] } = this.context;
         if (folderId) {
             notes = notes.filter(
-                note => note.folderId === folderId
+                note => note.folderid === parseInt(folderId)
             )
         }
         return (
@@ -25,7 +25,7 @@ export default class FolderList extends React.Component {
                     {notes.map(note =>
                         <ErrorBoundary key={note.id}>
                             <Note name={note.name}
-                                id={note.id}
+                                id={String(note.id)}
                                 modified={note.modified} />
                         </ErrorBoundary>
                     )}

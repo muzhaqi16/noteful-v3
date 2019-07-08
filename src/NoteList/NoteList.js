@@ -20,7 +20,7 @@ export default class NoteList extends React.Component {
     render() {
         const { notes = [] } = this.context;
         const { noteId } = this.props.match.params;
-        const note = notes.find(note => note.id === noteId) || { content: '' }
+        const note = notes.find(note => note.id === parseInt(noteId)) || { content: '' }
 
 
         return (
@@ -29,7 +29,7 @@ export default class NoteList extends React.Component {
                     <ErrorBoundary key={note.id}>
                         <Note
                             name={note.name}
-                            id={note.id}
+                            id={String(note.id)}
                             modified={note.modified}
                             onDeleteNote={this.handleDeleteNote} />
                     </ErrorBoundary>

@@ -18,7 +18,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    const url = 'http://localhost:9090';
+    const url = 'http://afternoon-shelf-12998.herokuapp.com';
     Promise.all([
       fetch(`${url}/notes`),
       fetch(`${url}/folders`)
@@ -68,7 +68,7 @@ class App extends React.Component {
   renderNavRoutes() {
     return (
       <>
-        {['/', '/folder/:folderId'].map(path =>
+        {['/', '/folders/:folderId'].map(path =>
           <Route
             exact
             key={path}
@@ -77,7 +77,7 @@ class App extends React.Component {
           />
         )}
         <Route
-          path='/note/:noteId'
+          path='/notes/:noteId'
           component={NoteNav}
         />
         <Route
@@ -94,7 +94,7 @@ class App extends React.Component {
   renderMainRoutes() {
     return (
       <>
-        {['/', '/folder/:folderId'].map(path =>
+        {['/', '/folders/:folderId'].map(path =>
           <Route
             exact
             key={path}
@@ -103,7 +103,7 @@ class App extends React.Component {
           />
         )}
         <Route
-          path='/note/:noteId'
+          path='/notes/:noteId'
           component={NoteList}
         />
         <Route

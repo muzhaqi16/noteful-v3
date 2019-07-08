@@ -51,7 +51,7 @@ export default class AddFolder extends React.Component {
             const folder = {
                 name: e.target['folder-name'].value
             }
-            fetch(`http://localhost:9090/folders`, {
+            fetch(`http://afternoon-shelf-12998.herokuapp.com/folders`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -65,7 +65,7 @@ export default class AddFolder extends React.Component {
                 })
                 .then(folder => {
                     this.context.addFolder(folder)
-                    this.props.history.push(`/folder/${folder.id}`)
+                    this.props.history.push(`/folders/${folder.id}`)
                 })
                 .catch(error => {
                     console.error({ error })

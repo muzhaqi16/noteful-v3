@@ -10,18 +10,17 @@ export default class FolderNav extends React.Component {
 
     render() {
         const { folders = [], notes = [] } = this.context;
-
         return (
             <ul className="folderList">
                 {folders.map(folder =>
                     <li key={folder.id}>
-                        <NavLink to={`/folder/${folder.id}`}>
+                        <NavLink to={`/folders/${folder.id}`}>
                             <FontAwesomeIcon icon="folder" className="closedFolder" />
                             <FontAwesomeIcon icon="folder-open" className="openFolder" />
                             {' '}
                             {folder.name}
                             <span className="noteCount">
-                                {(notes.filter(note => note.folderId === folder.id)).length}
+                                {(notes.filter(note => note.folderid === folder.id)).length}
                             </span>
                         </NavLink>
                     </li>
