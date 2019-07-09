@@ -22,7 +22,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const url = 'http://localhost:8000';
+    const url = 'https://afternoon-shelf-12998.herokuapp.com';
     Promise.all([
       fetch(`${url}/notes`),
       fetch(`${url}/folders`)
