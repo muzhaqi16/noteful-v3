@@ -51,7 +51,7 @@ export default class AddFolder extends React.Component {
             const folder = {
                 name: e.target['folder-name'].value
             }
-            fetch(`https://afternoon-shelf-12998.herokuapp.com/folders`, {
+            fetch(`http://localhost:8000/folders`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

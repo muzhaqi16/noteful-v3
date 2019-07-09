@@ -12,13 +12,17 @@ import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 import './App.css';
 
 class App extends React.Component {
-  state = {
-    notes: [],
-    folders: [],
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      notes: [],
+      folders: [],
+    };
+    this.handleDeleteNote = this.handleDeleteNote.bind(this);
+  }
 
   componentDidMount() {
-    const url = 'https://afternoon-shelf-12998.herokuapp.com';
+    const url = 'http://localhost:8000';
     Promise.all([
       fetch(`${url}/notes`),
       fetch(`${url}/folders`)
@@ -60,8 +64,9 @@ class App extends React.Component {
   }
 
   handleDeleteNote = noteId => {
+    const newNotes = this.state.notes.filter(note => String(note.id) !== noteId)
     this.setState({
-      notes: this.state.notes.filter(note => note.id !== noteId)
+      notes: newNotes
     })
   }
 

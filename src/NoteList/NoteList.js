@@ -1,10 +1,13 @@
 import React from 'react';
 import ApiContext from '../ApiContext';
 import Note from '../Note/Note';
-import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import './NoteList.css';
 
 export default class NoteList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleDeleteNote = this.handleDeleteNote.bind(this);
+    }
     static defaultProps = {
         match: {
             params: {}
@@ -13,7 +16,7 @@ export default class NoteList extends React.Component {
 
     static contextType = ApiContext;
 
-    handleDeleteNote = noteId => {
+    handleDeleteNote = () => {
         this.props.history.push(`/`)
     }
 
@@ -26,13 +29,11 @@ export default class NoteList extends React.Component {
         return (
             <section className='NoteListMain'>
                 <ul className="noteList">
-                    <ErrorBoundary key={note.id}>
-                        <Note
-                            name={note.name}
-                            id={String(note.id)}
-                            modified={note.modified}
-                            onDeleteNote={this.handleDeleteNote} />
-                    </ErrorBoundary>
+                    <Note
+                        name={note.name}
+                        id={String(note.id)}
+                        modified={note.modified}
+                        onDeleteNote={this.handleDeleteNote} />
                 </ul>
                 <p>{note.content}</p>
             </section>

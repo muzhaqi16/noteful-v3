@@ -6,16 +6,18 @@ import PropTypes from 'prop-types';
 import './Note.css';
 
 export default class Note extends React.Component {
-    static defaultProps = {
-        onDeleteNote: () => { },
+    constructor(props) {
+        super(props)
+        this.handleClickDelete = this.handleClickDelete.bind(this)
     }
+
     static contextType = ApiContext;
 
     handleClickDelete = e => {
         e.preventDefault()
 
         const noteId = this.props.id;
-        const url = 'https://afternoon-shelf-12998.herokuapp.com';
+        const url = 'http://localhost:8000';
         fetch(`${url}/notes/${noteId}`, {
             method: 'DELETE',
             headers: {
@@ -23,14 +25,11 @@ export default class Note extends React.Component {
             },
         })
             .then(res => {
-                if (!res.ok)
-                    return res.then(e => Promise.reject(e))
                 return res
             })
             .then(() => {
-                this.context.deleteNote(noteId)
-                // allow parent to perform extra behaviour
-                this.props.onDeleteNote(noteId)
+                this.context.deleteNote(noteId);
+                this.props.onDeleteNote();
             })
             .catch(error => {
                 console.error({ error })

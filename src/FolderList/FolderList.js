@@ -8,8 +8,15 @@ import Note from '../Note/Note';
 import './FolderList.css';
 
 export default class FolderList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleDeleteNote = this.handleDeleteNote.bind(this);
+    }
     static contextType = ApiContext;
 
+    handleDeleteNote = () => {
+        this.props.history.push(`/`)
+    }
     render() {
         const { folderId } = this.props.match.params
         let { notes = [] } = this.context;
@@ -26,7 +33,8 @@ export default class FolderList extends React.Component {
                         <ErrorBoundary key={note.id}>
                             <Note name={note.name}
                                 id={String(note.id)}
-                                modified={note.modified} />
+                                modified={note.modified}
+                                onDeleteNote={this.handleDeleteNote} />
                         </ErrorBoundary>
                     )}
 
